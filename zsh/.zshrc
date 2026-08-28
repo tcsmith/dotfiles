@@ -5,6 +5,9 @@ export PATH="$HOME/.local/bin:/snap/bin:$PATH"
 autoload -Uz compinit
 compinit
 
+# Aliases
+alias tavish=stow
+
 # Keybinds
 bindkey '\e' kill-whole-line
 
