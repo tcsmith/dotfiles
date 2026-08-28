@@ -1,3 +1,5 @@
+[include]
+    path = ~/.gitconfig.local
 [user]
 	email = REDACTED
 	name = REDACTED
@@ -5,8 +7,5 @@
 	pager = delta
 [interactive]
 	diffFilter = delta --color-only
-[credential]
-    helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
-
 [alias]
     logpp = log --graph --all --decorate --pretty=format:'%C(auto)%h%Creset %C(dim white)%ad%Creset %C(auto)%d%Creset %s %C(dim white)(%an)%Creset' --date=short
