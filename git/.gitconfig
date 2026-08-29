@@ -5,6 +5,7 @@
 	name = REDACTED
 [core]
 	pager = delta
+	autocrlf = false
 [interactive]
 	diffFilter = delta --color-only
 [alias]
