@@ -18,13 +18,8 @@ zstyle ':completion:*' menu select
 
 # Aliases
 alias tavish=stow
+alias ls="ls --color"
 alias ll="ls -la"
-
-case "$(uname -s)" in
-  Darwin)
-    alias ls="ls -G"
-    ;;
-esac
 
 # Keybinds
 bindkey '\e' kill-whole-line
