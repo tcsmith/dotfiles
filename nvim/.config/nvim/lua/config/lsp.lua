@@ -42,3 +42,15 @@ vim.lsp.config("neocmake", {
 })
 
 vim.lsp.enable("neocmake")
+
+vim.lsp.config("basedpyright", {
+  cmd = { "basedpyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_markers = {
+    "pyproject.toml",
+    ".git",
+  },
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
+
+vim.lsp.enable("basedpyright")
