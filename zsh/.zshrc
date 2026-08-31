@@ -19,10 +19,23 @@ zstyle ':completion:*' menu select
 # Aliases
 alias tavish=stow
 alias ls="ls --color"
+alias la="ls -a"
 alias ll="ls -la"
+alias python="python3"
+alias pip="pip3"
 
 # Keybinds
 bindkey '\e' kill-whole-line
+
+# History
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt append_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
 
 # Plugins
 case "$(uname -s)" in
