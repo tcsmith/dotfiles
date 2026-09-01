@@ -68,4 +68,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+require("fzf-lua").setup({
+  grep = {
+    hidden = true,
+  },
+})
+
 require("lualine").setup()
