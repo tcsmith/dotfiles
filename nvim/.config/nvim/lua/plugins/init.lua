@@ -59,6 +59,8 @@ require("nvim-treesitter").install({
   "lua",
   "markdown",
   "markdown_inline",
+  "toml",
+  "yaml",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
