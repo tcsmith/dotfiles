@@ -40,6 +40,7 @@ map("n", "<leader>xb", "<cmd>DapToggleBreakpoint<cr>", { desc = "Debug: Toggle b
 map("n", "<leader>xo", "<cmd>DapStepOver<cr>", { desc = "Debug: Step over" })
 map("n", "<leader>xi", "<cmd>DapStepInto<cr>", { desc = "Debug: Step into" })
 map("n", "<leader>xu", "<cmd>DapStepOut<cr>", { desc = "Debug: Step out" })
+map("n", "<leader>xr", "<cmd>DapToggleRepl<cr>", { desc = "Debug: Toggle REPL" })
 
 vim.keymap.set("n", "<leader>xh", function()
   require("dap.ui.widgets").hover()
