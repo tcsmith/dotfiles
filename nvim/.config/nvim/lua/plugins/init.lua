@@ -22,6 +22,9 @@ vim.pack.add({
   {
     src = "https://github.com/nvim-lualine/lualine.nvim",
   },
+  {
+    src = "https://github.com/mfussenegger/nvim-dap",
+  },
 })
 
 vim.cmd.colorscheme("tokyonight-night")
@@ -35,6 +38,47 @@ require("blink.cmp").setup({
     enabled = false,
   },
 })
+
+
+-- DAP
+local dap = require("dap")
+vim.fn.sign_define("DapBreakpoint", {
+  text = "B",
+  texthl = "DiagnosticError",
+})
+vim.fn.sign_define("DapBreakpointRejected", {
+  text = "R",
+  texthl = "DiagnosticError",
+})
+
+vim.fn.sign_define("DapStopped", {
+  text = "→",
+  texthl = "DiagnosticWarn",
+  linehl = "debugPC",
+})
+
+
+-- DAP: GDB 
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "--interpreter=dap" },
+}
+
+-- C++ launch config
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopAtBeginningOfMainSubprogram = false,
+  },
+}
+
 
 require("neo-tree").setup({
   filesystem = {

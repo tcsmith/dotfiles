@@ -33,6 +33,28 @@ map("n", "<leader>dc", vim.diagnostic.open_float, { desc = "Diagnostic at cursor
 map("n", "<leader>df", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Diagnostics in current file", })
 map("n", "<leader>do", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Diagnostics in open files", })
 
+-- DAP
+map("n", "<leader>xc", "<cmd>DapContinue<cr>", { desc = "Debug: Start/Continue" })
+map("n", "<leader>xs", "<cmd>DapTerminate<cr>", { desc = "Debug: Stop" })
+map("n", "<leader>xb", "<cmd>DapToggleBreakpoint<cr>", { desc = "Debug: Toggle breakpoint" })
+map("n", "<leader>xo", "<cmd>DapStepOver<cr>", { desc = "Debug: Step over" })
+map("n", "<leader>xi", "<cmd>DapStepInto<cr>", { desc = "Debug: Step into" })
+map("n", "<leader>xu", "<cmd>DapStepOut<cr>", { desc = "Debug: Step out" })
+
+vim.keymap.set("n", "<leader>xh", function()
+  require("dap.ui.widgets").hover()
+end, { desc = "Debug: Hover" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "dap-float",
+  callback = function(event)
+    vim.keymap.set("n", "q", "<cmd>close<cr>", {
+      buffer = event.buf,
+      silent = true,
+    })
+  end,
+})
+
 -- Git
 map("n", "<leader>ghp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview Git hunk", })
 map("n", "<leader>gd", function()
