@@ -52,3 +52,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.softtabstop = 2
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp", "cmake" },
+  callback = function()
+    if vim.fs.root(0, "CMakeLists.txt") then
+      vim.bo.makeprg = "cmake"
+    end
+  end,
+})
