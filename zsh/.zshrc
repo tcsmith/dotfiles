@@ -7,6 +7,11 @@ case "$(uname -s)" in
     ;;
   Darwin)
     export PATH="/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
     export PATH="$HOME/.mtplx/bin:$PATH"
     ;;
 esac
@@ -15,6 +20,13 @@ esac
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
+
+# run-help
+if [[ "$(uname -s)" == Darwin ]]; then
+    (( $+aliases[run-help] )) && unalias run-help
+    autoload -Uz run-help
+    HELPDIR=/usr/share/zsh/5.9/help
+fi
 
 # Aliases
 alias tavish=stow
