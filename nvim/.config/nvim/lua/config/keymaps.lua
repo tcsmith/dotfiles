@@ -15,6 +15,10 @@ map("n", "<C-l>", "<C-w>l")
 -- file tree
 map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
 
+-- Comments
+map("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
+map("x", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
+
 -- lsp
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
