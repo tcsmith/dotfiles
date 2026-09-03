@@ -86,6 +86,9 @@ local powershell_es_start_script =
     "Start-EditorServices.ps1"
   )
 
+local powershell_es_session =
+  vim.fs.joinpath(vim.fn.stdpath("state"), "powershell_es.session.json")
+
 vim.lsp.config("powershell_es", {
   cmd = {
     "pwsh",
@@ -93,9 +96,10 @@ vim.lsp.config("powershell_es", {
     "-NoProfile",
     "-Command",
     string.format(
-      "& '%s' -BundledModulesPath '%s' -Stdio -LogLevel Error",
+      "& '%s' -BundledModulesPath '%s' -SessionDetailsPath '%s' -Stdio -LogLevel Error",
       powershell_es_start_script,
-      powershell_es_path
+      powershell_es_path,
+      powershell_es_session
     ),
   },
   filetypes = { "ps1" },
