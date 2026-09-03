@@ -54,3 +54,22 @@ vim.lsp.config("basedpyright", {
 })
 
 vim.lsp.enable("basedpyright")
+
+vim.lsp.config("typescript_ls", {
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  },
+  root_markers = {
+    "tsconfig.json",
+    "jsconfig.json",
+    "package.json",
+    ".git",
+  },
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
+
+vim.lsp.enable("typescript_ls")
