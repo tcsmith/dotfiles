@@ -127,7 +127,7 @@ require("neo-tree").setup({
   },
 })
 
-require("nvim-treesitter").install({ 
+require("nvim-treesitter").install({
   "c",
   "cpp",
   "cmake",
@@ -135,6 +135,7 @@ require("nvim-treesitter").install({
   "lua",
   "markdown",
   "markdown_inline",
+  "powershell",
   "toml",
   "tsx",
   "typescript",
@@ -149,6 +150,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "javascript",
     "javascriptreact",
     "lua",
+    "ps1",
     "typescript",
     "typescriptreact",
   },

@@ -73,3 +73,38 @@ vim.lsp.config("typescript_ls", {
 })
 
 vim.lsp.enable("typescript_ls")
+
+
+-- PowerShell
+local powershell_es_path =
+  vim.fs.joinpath(vim.fn.stdpath("data"), "powershell-editor-services")
+
+local powershell_es_start_script =
+  vim.fs.joinpath(
+    powershell_es_path,
+    "PowerShellEditorServices",
+    "Start-EditorServices.ps1"
+  )
+
+vim.lsp.config("powershell_es", {
+  cmd = {
+    "pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-Command",
+    string.format(
+      "& '%s' -BundledModulesPath '%s' -Stdio -LogLevel Error",
+      powershell_es_start_script,
+      powershell_es_path
+    ),
+  },
+  filetypes = { "ps1" },
+  root_markers = {
+    "PSScriptAnalyzerSettings.psd1",
+    ".git",
+  },
+  workspace_required = false,
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
+
+vim.lsp.enable("powershell_es")
