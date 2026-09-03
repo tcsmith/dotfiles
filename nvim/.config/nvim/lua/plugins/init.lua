@@ -84,6 +84,21 @@ dap.configurations.cpp = {
 
 
 require("neo-tree").setup({
+  default_component_configs = {
+    git_status = {
+      symbols = {
+        added = "A",
+        deleted = "D",
+        modified = "M",
+        renamed = "R",
+        untracked = "?",
+        ignored = "I",
+        unstaged = "U",
+        staged = "S",
+        conflict = "C",
+      },
+    },
+  },
   filesystem = {
     follow_current_file = {
       enabled = true,
