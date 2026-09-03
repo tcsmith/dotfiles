@@ -32,6 +32,7 @@ opt.undofile = true
 
 -- Responsiveness
 opt.updatetime = 250
+opt.timeoutlen = 1500
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp" },
