@@ -100,15 +100,27 @@ require("nvim-treesitter").install({
   "c",
   "cpp",
   "cmake",
+  "javascript",
   "lua",
   "markdown",
   "markdown_inline",
   "toml",
+  "tsx",
+  "typescript",
   "yaml",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp", "cmake", "lua" },
+  pattern = {
+    "c",
+    "cpp",
+    "cmake",
+    "javascript",
+    "javascriptreact",
+    "lua",
+    "typescript",
+    "typescriptreact",
+  },
   callback = function()
     vim.treesitter.start()
   end,
