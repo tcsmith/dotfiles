@@ -28,6 +28,9 @@ vim.pack.add({
   {
     src = "https://github.com/mfussenegger/nvim-dap",
   },
+  {
+    src = "https://github.com/stevearc/conform.nvim",
+  },
 })
 
 vim.cmd.colorscheme("tokyonight-night")
@@ -39,6 +42,16 @@ require("blink.cmp").setup({
   signature = {
     -- disabling because its a bit noisy and you cant select which overload
     enabled = false,
+  },
+})
+
+-- conform
+require("conform").setup({
+  formatters_by_ft = {
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
   },
 })
 
