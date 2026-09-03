@@ -23,6 +23,9 @@ vim.pack.add({
     src = "https://github.com/nvim-lualine/lualine.nvim",
   },
   {
+    src = "https://codeberg.org/mfussenegger/nvim-lint",
+  },
+  {
     src = "https://github.com/mfussenegger/nvim-dap",
   },
 })
@@ -133,3 +136,25 @@ require("fzf-lua").setup({
 })
 
 require("lualine").setup()
+
+-- Linting
+local lint = require("lint")
+
+lint.linters_by_ft = {
+  javascript = { "eslint" },
+  javascriptreact = { "eslint" },
+  typescript = { "eslint" },
+  typescriptreact = { "eslint" },
+}
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = vim.api.nvim_create_augroup("eslint", { clear = true }),
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+  callback = function(args)
+    local root = vim.fs.root(args.buf, "eslint.config.js")
+    if root then
+      lint.try_lint(nil, { cwd = root })
+    end
+  end,
+})
+
