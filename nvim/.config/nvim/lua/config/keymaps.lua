@@ -62,14 +62,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Git
 map("n", "<leader>ghp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview Git hunk", })
+map("n", "]h", "<cmd>Gitsigns nav_hunk next<cr>", { desc = "Next Git hunk" })
+map("n", "[h", "<cmd>Gitsigns nav_hunk prev<cr>", { desc = "Previous Git hunk" })
 map("n", "<leader>gd", function()
-  if vim.wo.diff then
-    vim.cmd.tabclose()
-    return
-  end
-
-  vim.cmd.tabnew("%")
   require("gitsigns").diffthis()
 end, {
-desc = "Toggle Git diff",
+desc = "Git diff",
 })
