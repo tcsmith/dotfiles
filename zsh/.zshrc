@@ -16,6 +16,11 @@ case "$(uname -s)" in
     ;;
 esac
 
+# Disable the TTYY driver's input-side XON/XOFF 
+# bc that shit is annoying AF when u fat finger some keys 
+# and dont know why ur hung 
+stty -ixon
+
 # Completion
 autoload -Uz compinit
 compinit
