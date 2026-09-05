@@ -30,6 +30,9 @@ opt.splitbelow = true
 opt.swapfile = false
 opt.undofile = true
 
+-- Sessions
+opt.sessionoptions:append("localoptions")
+
 -- Responsiveness
 opt.updatetime = 250
 opt.timeoutlen = 1500

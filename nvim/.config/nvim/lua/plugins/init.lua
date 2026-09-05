@@ -1,4 +1,5 @@
 vim.pack.add({
+  { src = "https://github.com/rmagatti/auto-session" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/MunifTanjim/nui.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
@@ -34,6 +35,13 @@ vim.pack.add({
 })
 
 vim.cmd.colorscheme("tokyonight-night")
+
+require("auto-session").setup({
+  close_filetypes_on_save = { "neo-tree" },
+  post_restore_cmds = {
+    "Neotree action=show source=filesystem position=left",
+  },
+})
 
 require("blink.cmp").setup({
   sources = {
