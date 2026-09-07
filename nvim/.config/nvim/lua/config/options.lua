@@ -44,6 +44,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
     vim.opt_local.softtabstop = 4
+    -- gN controls where C++ access specifiers like public:, protected:, private: are placed relative to the surrounding block. The default is one shiftwidth inward
+    vim.opt_local.cinoptions:append("g0")
   end,
 })
 
