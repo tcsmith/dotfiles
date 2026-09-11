@@ -42,6 +42,7 @@ if [[ "$(uname -s)" == Darwin ]]; then
 fi
 
 # Aliases
+alias cat=batcat
 alias tavish=stow
 alias ls="ls --color"
 alias la="ls -a"
