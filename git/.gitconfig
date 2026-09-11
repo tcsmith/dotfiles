@@ -1,8 +1,7 @@
 [include]
     path = ~/.gitconfig.local
-[user]
-	email = REDACTED
-	name = REDACTED
+[include]
+    path = ~/.gitconfig.user
 [core]
 	pager = delta
 	autocrlf = false
