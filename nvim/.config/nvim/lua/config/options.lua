@@ -15,6 +15,7 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 opt.incsearch = true
+opt.grepprg = "rg --vimgrep"
 
 -- UI
 opt.termguicolors = true
