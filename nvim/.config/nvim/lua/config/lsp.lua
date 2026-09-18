@@ -43,18 +43,6 @@ vim.lsp.config("neocmake", {
 
 vim.lsp.enable("neocmake")
 
-vim.lsp.config("basedpyright", {
-  cmd = { "basedpyright-langserver", "--stdio" },
-  filetypes = { "python" },
-  root_markers = {
-    "pyproject.toml",
-    ".git",
-  },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
-})
-
-vim.lsp.enable("basedpyright")
-
 vim.lsp.config("typescript_ls", {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = {
@@ -112,3 +100,26 @@ vim.lsp.config("powershell_es", {
 })
 
 vim.lsp.enable("powershell_es")
+
+
+-- Python
+
+
+-- ty
+
+vim.lsp.config("ty", {
+  cmd = {
+    "ty",
+    "server"
+  },
+  filetypes = {
+    "python"
+  },
+  root_markers = {
+    "pyproject.toml",
+    "ty.toml",
+    ".git"
+  },
+})
+
+vim.lsp.enable("ty")
