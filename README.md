@@ -5,6 +5,8 @@ The rite of passage repo for any serious *NIX user.
 
 Make all this shit easily portable across machines mang!
 
+**NOTE:** be sure to check each package for its own README. ex. nvim has one.
+
 ## What this is
 
 My personal development configuration, managed in Git across macOS, Ubuntu under WSL, and Windows 11.
