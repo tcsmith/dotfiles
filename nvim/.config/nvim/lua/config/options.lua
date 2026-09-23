@@ -29,6 +29,14 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 
+-- Whitespace
+opt.list = true
+opt.listchars = {
+    tab = "> ",
+    trail = "·",
+    nbsp = "+",
+}
+
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
@@ -87,4 +95,5 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
 

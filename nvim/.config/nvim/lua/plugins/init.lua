@@ -35,6 +35,7 @@ vim.pack.add({
 })
 
 vim.cmd.colorscheme("tokyonight-night")
+vim.api.nvim_set_hl(0, "Whitespace", {fg = "#a09a5c"})
 
 require("auto-session").setup({
   close_filetypes_on_save = { "neo-tree" },
