@@ -17,6 +17,10 @@ if vim.fn.has("win32") == 1 then
   vim.env.__SuppressAnsiEscapeSequences = "1"
 end
 
+vim.g.python_indent = {
+  closed_paren_align_last_line = false,
+}
+
 local opt = vim.opt
 
 -- Line numbers
