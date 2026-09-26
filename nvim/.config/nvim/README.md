@@ -14,6 +14,12 @@ As i switching Python from `basedpyright` to `ty` and `ruff` i realized that man
 
 Some editor functionality depends on tools installed outside Neovim.
 
+### uv
+
+Install `uv` according to the official documentation so that it can self update
+
+[install `uv` instructions](https://docs.astral.sh/uv/getting-started/installation/)
+
 ### Python
 
 Install with `uv`:

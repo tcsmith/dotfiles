@@ -25,6 +25,10 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.pairs": {
+      "rev": "b1c5a726921b7a8c9321e9a7a208aa0571de5810",
+      "src": "https://github.com/nvim-mini/mini.pairs"
+    },
     "neo-tree.nvim": {
       "rev": "5e076e5419b95b13c29383e1de29270a50df2d40",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"

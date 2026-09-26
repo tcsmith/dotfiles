@@ -26,6 +26,12 @@ map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "<leader>tpl", function()
+  local ruff_enabled = vim.lsp.is_enabled("ruff")
+  local ty_enabled = vim.lsp.is_enabled("ty")
+  vim.lsp.enable({"ruff", "ty"}, not (ruff_enabled or ty_enabled))
+end, { desc = "Toggle ruff and ty LSP on/off" })
+
 
 -- FzfLua
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find files", })

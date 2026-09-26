@@ -24,6 +24,9 @@ vim.pack.add({
     src = "https://github.com/nvim-lualine/lualine.nvim",
   },
   {
+    src = "https://github.com/nvim-mini/mini.pairs",
+  },
+  {
     src = "https://codeberg.org/mfussenegger/nvim-lint",
   },
   {
@@ -170,13 +173,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- fzf-lua
 require("fzf-lua").setup({
   grep = {
     hidden = true,
   },
 })
 
+-- lualine
 require("lualine").setup()
+
+-- mini.pairs (brace matching thangs)
+require("mini.pairs").setup()
 
 -- Linting
 local lint = require("lint")
