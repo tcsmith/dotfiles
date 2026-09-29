@@ -139,6 +139,7 @@ require("neo-tree").setup({
   },
 })
 
+-- Treesitter
 require("nvim-treesitter").install({
   "c",
   "cpp",
@@ -156,20 +157,17 @@ require("nvim-treesitter").install({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "c",
-    "cpp",
-    "cmake",
-    "javascript",
-    "javascriptreact",
-    "lua",
-    "ps1",
-    "python",
-    "typescript",
-    "typescriptreact",
-  },
-  callback = function()
-    vim.treesitter.start()
+  pattern = "*",
+  callback = function(args)
+    local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+    if lang and vim.treesitter.language.add(lang) then
+      vim.treesitter.start(args.buf, lang)
+      if vim.treesitter.query.get(lang, "folds") then
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo.foldlevel = 99
+      end
+    end
   end,
 })
 
