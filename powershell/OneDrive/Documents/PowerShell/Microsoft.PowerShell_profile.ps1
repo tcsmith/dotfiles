@@ -3,6 +3,9 @@ Invoke-Expression (&starship init powershell)
 # Git Completion
 Import-Module git-completion
 
+# Python doesnt output UTF-8 by default. TIL!
+$env:PYTHONUTF8 = "1"
+
 Register-ArgumentCompleter -CommandName git -Native -ScriptBlock {
     param($wordToComplete, $CommandAst, $CursorPosition)
     Complete-Git -CommandAst $CommandAst -CursorPosition $CursorPosition
